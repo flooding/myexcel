@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="">
 <head>
@@ -65,12 +66,12 @@
 
                 </li>
 
-                <li class="chapter " data-level="1.2" data-path="dependency.html">
+                <li class="chapter " data-level="1.2" data-path="start.html">
 
-                    <a href="dependency.html">
+                    <a href="start.html">
 
 
-                        依赖
+                        快速开始
 
                     </a>
 
@@ -201,11 +202,57 @@
 
                             <section class="normal markdown-section">
 
-                                <h3 id="release-240&#xFF08;20190601&#xFF09;">
-                                    release-2.4.0&#xFF08;2019/06/01&#xFF09;</h3>
+                                <h3 id="release-270&#xFF08;20190629&#xFF09;">
+                                    release-2.7.0&#xFF08;2019/06/29&#xFF09;</h3>
                                 <ul>
-                                    <li>SaxExcelReader&#x652F;&#x6301;.xls&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#xFF1B;</li>
-                                    <li>&#x5220;&#x9664;DefaultExcelReader&#x5E76;&#x884C;&#x8BFB;&#x53D6;&#x65B9;&#x6CD5;&#xFF1B;</li>
+                                    <li>&#x4FEE;&#x590D;&#x5728;SXSSF&#x6A21;&#x5F0F;&#x4E0B;&#x56E0;&#x63D0;&#x524D;&#x5199;&#x5165;&#x78C1;&#x76D8;&#x5BFC;&#x81F4;&#x5408;&#x5E76;&#x5355;&#x5143;&#x683C;&#x9519;&#x8BEF;&#x95EE;&#x9898;&#xFF1B;</li>
+                                    <li>&#x65B0;&#x589E;DefaultExcelBuilder&#x3001;DefaultStreamExcelBuilder&#x591A;&#x7EA7;&#x8868;&#x5934;&#x529F;&#x80FD;&#xFF1B;</li>
+                                    <li>&#x65B0;&#x589E;&#x8BFB;&#x53D6;Excel&#x65F6;&#x95F4;&#x6233;&#xFF08;Timestamp&#xFF09;&#x7684;&#x652F;&#x6301;&#xFF1B;</li>
+                                    <li>&#x65B0;&#x589E;DefaultStreamExcelBuilder&#x5BFC;&#x51FA;zip&#x538B;&#x7F29;&#x6587;&#x4EF6;&#x7684;&#x652F;&#x6301;&#xFF08;DefaultStreamExcelBuilder.buildAsZip(&quot;xxxx&quot;)&#xFF09;&#xFF1B;</li>
+                                    <li>&#x65B0;&#x589E;AttachmentExportUtil&#x5BF9;&#x4E00;&#x822C;&#x6027;Path&#x5BFC;&#x51FA;&#x652F;&#x6301;&#xFF1B;</li>
+                                    <li>&#x4F18;&#x5316;DefaultStreamExcelBuilder&#x8F6C;&#x5316;workbook&#x4E3A;path&#x6D41;&#x7A0B;&#xFF0C;&#x4F7F;&#x7528;&#x63D0;&#x4F9B;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x5F02;&#x6B65;&#x8F6C;&#x5316;&#xFF0C;&#x63D0;&#x5347;&#x5BFC;&#x51FA;&#x6548;&#x7387;&#xFF1B;</li>
+                                    <li>&#x4F18;&#x5316;SXSSF&#x9ED8;&#x8BA4;&#x7A97;&#x53E3;&#x5185;&#x5B58;&#x4FDD;&#x5B58;&#x884C;&#x6570;&#x4E3A;1&#xFF1B;</li>
+                                    <li>&#x4F18;&#x5316;&#x9ED8;&#x8BA4;workbook&#x7C7B;&#x578B;&#x4E3A;SXSSF&#xFF0C;&#x964D;&#x4F4E;&#x5B9E;&#x9645;&#x751F;&#x4EA7;&#x4F7F;&#x7528;&#x4E2D;&#x5185;&#x5B58;&#x5360;&#x7528;&#xFF1B;</li>
+                                    <li>&#x4F18;&#x5316;DefaultStreamExcelBuilder&#x6A21;&#x578B;&#xFF0C;&#x964D;&#x4F4E;&#x4E00;&#x6B21;&#x6027;&#x8FFD;&#x52A0;&#x6570;&#x636E;&#x5BFC;&#x81F4;&#x7684;&#x5185;&#x5B58;&#x6025;&#x5267;&#x589E;&#x957F;&#x95EE;&#x9898;&#xFF08;&#x4F7F;&#x7528;Jprofiler&#x6D4B;&#x8BD5;&#xFF0C;&#x4E00;&#x767E;&#x4E07;&#x6570;&#x636E;&#xFF0C;&#x9664;&#x9996;&#x6B21;&#x5BFC;&#x51FA;&#x6240;&#x5360;&#x5185;&#x5B58;&#x8F83;&#x9AD8;&#x5916;(&#x4E09;&#x56DB;&#x767E;&#x5146;&#x5185;)&#xFF0C;&#x7A33;&#x5B9A;&#x5360;&#x7528;&#x5185;&#x5B58;&#x4E00;&#x767E;&#x5146;&#x5DE6;&#x53F3;&#xFF09;&#xFF1B;</li>
+                                    <li>&#x4F18;&#x5316;&#x5BFC;&#x51FA;Excel&#x6A21;&#x578B;&#x8FB9;&#x754C;&#x5B9A;&#x4E49;&#xFF0C;&#x964D;&#x4F4E;&#x4EE3;&#x7801;&#x9519;&#x8BEF;&#x7684;&#x53EF;&#x80FD;&#x6027;&#xFF1B;</li>
+                                </ul>
+                                <h3 id="release-262&#xFF08;20190622&#xFF09;">
+                                    release-2.6.2&#xFF08;2019/06/22&#xFF09;</h3>
+                                <ul>
+                                    <li>&#x4FEE;&#x590D;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#x5BFC;&#x81F4;&#x7A7A;&#x6307;&#x9488;&#x95EE;&#x9898;&#xFF1B;</li>
+                                    <li>&#x65B0;&#x589E;&#x8BFB;&#x53D6;&#x81EA;&#x5B9A;&#x4E49;&#x7EC8;&#x6B62;&#x63A5;&#x53E3;&#xFF1B;</li>
+                                </ul>
+                                <h3 id="release-261&#xFF08;20190619&#xFF09;">
+                                    release-2.6.1&#xFF08;2019/06/19&#xFF09;</h3>
+                                <ul>
+                                    <li>&#x4FEE;&#x590D;SaxExcelReader&#x7684;sheet&#x8BBE;&#x7F6E;&#x65E0;&#x6CD5;&#x751F;&#x6548;&#x95EE;&#x9898;&#xFF1B;</li>
+                                </ul>
+                                <h3 id="release-260&#xFF08;20190618&#xFF09;">
+                                    release-2.6.0&#xFF08;2019/06/18&#xFF09;</h3>
+                                <ul>
+                                    <li>DefaultStreamExcelBuilder&#x65B0;&#x589E;&#x6587;&#x4EF6;&#x5206;&#x5272;&#xFF0C;&#x5141;&#x8BB8;&#x8BBE;&#x5B9A;&#x751F;&#x6210;&#x7684;Excel&#x5BB9;&#x91CF;&#xFF0C;&#x8D85;&#x8FC7;&#x8BE5;&#x5BB9;&#x91CF;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x65B0;&#x7684;Excel&#xFF1B;</li>
+                                </ul>
+                                <h3 id="release-251&#xFF08;20190615&#xFF09;">
+                                    release-2.5.1&#xFF08;2019/06/15&#xFF09;</h3>
+                                <ul>
+                                    <li>&#x4FEE;&#x590D;&#x8FFD;&#x52A0;sheet&#x7684;&#x6570;&#x636E;&#x4E3A;&#x7A7A;&#x65F6;&#x5BFC;&#x81F4;&#x7684;&#x8FFD;&#x52A0;&#x5931;&#x8D25;&#x95EE;&#x9898;&#xFF1B;</li>
+                                    <li>&#x4FEE;&#x590D;&#x8FFD;&#x52A0;sheet&#x5BFC;&#x81F4;&#x7684;&#x539F;&#x914D;&#x7F6E;&#x5931;&#x6548;&#x95EE;&#x9898;&#xFF1B;</li>
+                                    <li>&#x4FEE;&#x590D;&#x4F7F;&#x7528;@ExcelTable&#x5BFC;&#x81F4;&#x7684;&#x9759;&#x6001;&#x5B57;&#x6BB5;&#x88AB;&#x5BFC;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x9ED8;&#x8BA4;&#x9759;&#x6001;&#x5B57;&#x6BB5;&#x4E0D;&#x88AB;&#x5BFC;&#x51FA;&#xFF0C;&#x4E5F;&#x53EF;&#x901A;&#x8FC7;ignoreStaticFields=false&#x53D6;&#x6D88;&#xFF1B;</li>
+                                    <li>&#x4FEE;&#x6539;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x7C7B;&#x7C7B;&#x578B;&#xFF0C;sheet&#x540D;&#x79F0;&#x65E0;&#x6CD5;&#x81EA;&#x589E;&#x957F;&#x95EE;&#x9898;&#xFF1B;</li>
+                                    <li>&#x4FEE;&#x590D;&#x9009;&#x62E9;&#x81EA;&#x52A8;&#x5217;&#x5BBD;&#x8BBE;&#x7F6E;&#x9519;&#x8BEF;&#x95EE;&#x9898;&#xFF1B;</li>
+                                    <li>&#x4FEE;&#x590D;&#x8BBE;&#x7F6E;workbook&#x7C7B;&#x578B;&#x90E8;&#x5206;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x751F;&#x6548;&#x95EE;&#x9898;&#xFF1B;</li>
+                                    <li>&#x4FEE;&#x590D;DefaultStreamExcelBuilder&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x56FA;&#x5B9A;&#x6807;&#x9898;&#x884C;&#x95EE;&#x9898;&#xFF1B;</li>
+                                    <li>&#x65B0;&#x589E;DefaultExcelBuilder\DefaultStreamExcelBuilder&#x81EA;&#x52A8;&#x6362;&#x884C;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;true&#xFF0C;&#x53EF;&#x901A;&#x8FC7;@ExcelTable&#x4E2D;wrapText&#x53D6;&#x6D88;&#xFF1B;</li>
+                                    <li>&#x4FEE;&#x6539;DefaultExcelBuilder\DefaultStreamExcelBuilder&#x90E8;&#x5206;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E3A;LinkedList&#xFF0C;&#x964D;&#x4F4E;&#x5185;&#x5B58;&#x8981;&#x6C42;&#xFF1B;</li>
+                                    <li>&#x4FEE;&#x6539;&#x5FEB;&#x901F;&#x79FB;&#x9664;&#x6570;&#x636E;&#x903B;&#x8F91;&#xFF0C;&#x63D0;&#x5347;&#x6570;&#x636E;&#x5904;&#x7406;&#x6548;&#x7387;&#xFF1B;</li>
+                                    <li>&#x4F18;&#x5316;&#x90E8;&#x5206;&#x8F6C;&#x6362;&#x64CD;&#x4F5C;&#xFF0C;&#x907F;&#x514D;&#x6D77;&#x91CC;&#x6570;&#x636E;&#x5217;&#x8868;&#x6574;&#x4F53;&#x590D;&#x5236;&#xFF1B;</li>
+                                </ul>
+                                <h3 id="release-250&#xFF08;20190530&#xFF09;">
+                                    release-2.5.0&#xFF08;2019/05/30&#xFF09;</h3>
+                                <ul>
+                                    <li>&#x6A21;&#x677F;&#x5BFC;&#x51FA;&#x652F;&#x6301;&#x81EA;&#x52A8;&#x6362;&#x884C;&#xFF08;word-break&#xFF09;&#xFF1B;</li>
+                                    <li>DefaultExcelBuilder&#x3001;DefaultStreamExcelBuilder&#x652F;&#x6301;&#x56FA;&#x5B9A;&#x6807;&#x9898;&#xFF1B;</li>
+                                    <li>DefaultExcelBuilder&#x3001;DefaultStreamExcelBuilder&#x652F;&#x6301;Bean&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x5F3A;&#x8F6C;&#x4E3A;String&#xFF0C;&#x907F;&#x514D;&#x8BF8;&#x5982;Long&#x7C7B;&#x578B;&#x6570;&#x636E;&#x53D8;&#x6210;&#x79D1;&#x5B66;&#x8BA1;&#x6570;&#x6CD5;&#x7B49;&#x95EE;&#x9898;&#xFF1B;</li>
                                 </ul>
                                 <h3 id="release-234&#xFF08;20190530&#xFF09;">
                                     release-2.3.4&#xFF08;2019/05/30&#xFF09;</h3>
@@ -330,11 +377,9 @@
                                     <li>&#x4F18;&#x5316;GroovyExcelBuilder&#x8BBE;&#x7F6E;&#x6A21;&#x677F;&#x6D41;&#x7A0B;&#xFF0C;&#x89E3;&#x51B3;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x53EF;&#x80FD;&#x8BEF;&#x52A0;&#x201C;/&#x201D;&#x5BFC;&#x81F4;&#x7684;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#x6A21;&#x677F;&#x95EE;&#x9898;&#xFF1B;</li>
                                     <li>&#x4F18;&#x5316;ExcelBuilder&#x7684;build&#x63A5;&#x53E3;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x5F3A;&#x5236;&#x8981;&#x6C42;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;Map
                                         <string
-                                                ,object>&#xFF0C;&#x53C2;&#x6570;&#x6539;&#x4E3A;Map
-                                            <string
-                                                    ,t>&#xFF1B;
-                                            </string,t>
-                                        </string,object>
+                                        ,object>&#xFF0C;&#x53C2;&#x6570;&#x6539;&#x4E3A;Map
+                                        <string
+                                        ,t>&#xFF1B;</string,t></string,object>
                                     </li>
                                     <li>&#x9879;&#x76EE;&#x57FA;&#x7840;&#x6A21;&#x5757;&#x91CD;&#x6784;&#xFF0C;&#x5B8C;&#x5584;&#x63A5;&#x53E3;&#xFF1B;</li>
                                     <li>example&#x9879;&#x76EE;&#x4E2D;&#x793A;&#x4F8B;&#x91CD;&#x6784;&#xFF0C;&#x66F4;&#x6E05;&#x6670;&#x3001;&#x5B8C;&#x6574;&#xFF1B;</li>
@@ -423,8 +468,9 @@
                     "gitbook": "*",
                     "theme": "default",
                     "variables": {},
-                    "plugins": [],
+                    "plugins": ["livereload"],
                     "pluginsConfig": {
+                        "livereload": {},
                         "highlight": {},
                         "search": {},
                         "lunr": {"maxIndexSize": 1000000, "ignoreSpecialCharacters": false},
@@ -473,8 +519,8 @@
                         "print": "styles/print.css"
                     }
                 },
-                "file": {"path": "version-log.md", "mtime": "2019-06-01T09:39:09.435Z", "type": "markdown"},
-                "gitbook": {"version": "3.2.3", "time": "2019-06-01T10:13:38.319Z"},
+                "file": {"path": "version-log.md", "mtime": "2019-06-30T05:36:30.035Z", "type": "markdown"},
+                "gitbook": {"version": "3.2.3", "time": "2019-06-30T05:49:12.537Z"},
                 "basePath": ".",
                 "book": {"language": ""}
             });
@@ -485,6 +531,9 @@
 
 <script src="gitbook/gitbook.js"></script>
 <script src="gitbook/theme.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
 
 
 <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>

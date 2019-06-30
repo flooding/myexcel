@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="">
 <head>
@@ -65,12 +66,12 @@
 
                 </li>
 
-                <li class="chapter " data-level="1.2" data-path="dependency.html">
+                <li class="chapter " data-level="1.2" data-path="start.html">
 
-                    <a href="dependency.html">
+                    <a href="start.html">
 
 
-                        依赖
+                        快速开始
 
                     </a>
 
@@ -201,6 +202,314 @@
 
                             <section class="normal markdown-section">
 
+                                <ol>
+                                    <li><p>&#x5728;<code>td</code>&#x4E0A;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#xFF1A;<code>formula</code>&#xFF0C;&#x65E0;&#x9700;&#x8BBE;&#x5B9A;&#x5177;&#x4F53;&#x503C;
+                                    </p>
+                                        <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>1<span class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">td</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>19<span class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">td</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">formula</span>&gt;</span>SUM(A1:A2)<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+                                    </li>
+                                    <li><p><code>td</code>&#x4E2D;&#x4E66;&#x5199;&#x5177;&#x4F53;&#x7684;&#x516C;&#x5F0F;&#x5373;&#x53EF;&#xFF0C;&#x5982;&#xFF1A;<code>SUM(A1:A2)</code>
+                                    </p>
+                                    </li>
+                                </ol>
+                                <p>&#x652F;&#x6301;&#x516C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+                                <pre><code class="lang-java"><span class="hljs-keyword">private</span> <span
+                                        class="hljs-keyword">static</span> Function[] produceFunctions() {
+        Function[] retval = <span class="hljs-keyword">new</span> Function[<span class="hljs-number">368</span>];
+
+        retval[<span class="hljs-number">0</span>] = <span class="hljs-keyword">new</span> Count();
+        retval[FunctionID.IF] = <span class="hljs-keyword">new</span> IfFunc(); <span
+                                            class="hljs-comment">//nominally 1</span>
+        retval[<span class="hljs-number">2</span>] = LogicalFunction.ISNA;
+        retval[<span class="hljs-number">3</span>] = LogicalFunction.ISERROR;
+        retval[FunctionID.SUM] = AggregateFunction.SUM; <span class="hljs-comment">//nominally 4</span>
+        retval[<span class="hljs-number">5</span>] = AggregateFunction.AVERAGE;
+        retval[<span class="hljs-number">6</span>] = AggregateFunction.MIN;
+        retval[<span class="hljs-number">7</span>] = AggregateFunction.MAX;
+        retval[<span class="hljs-number">8</span>] = <span class="hljs-keyword">new</span> RowFunc(); <span
+                                            class="hljs-comment">// ROW</span>
+        retval[<span class="hljs-number">9</span>] = <span class="hljs-keyword">new</span> Column();
+        retval[<span class="hljs-number">10</span>] = <span class="hljs-keyword">new</span> Na();
+        retval[<span class="hljs-number">11</span>] = <span class="hljs-keyword">new</span> Npv();
+        retval[<span class="hljs-number">12</span>] = AggregateFunction.STDEV;
+        retval[<span class="hljs-number">13</span>] = NumericFunction.DOLLAR;
+        retval[<span class="hljs-number">14</span>] = <span class="hljs-keyword">new</span> Fixed();
+        retval[<span class="hljs-number">15</span>] = NumericFunction.SIN;
+        retval[<span class="hljs-number">16</span>] = NumericFunction.COS;
+        retval[<span class="hljs-number">17</span>] = NumericFunction.TAN;
+        retval[<span class="hljs-number">18</span>] = NumericFunction.ATAN;
+        retval[<span class="hljs-number">19</span>] = NumericFunction.PI;
+        retval[<span class="hljs-number">20</span>] = NumericFunction.SQRT;
+        retval[<span class="hljs-number">21</span>] = NumericFunction.EXP;
+        retval[<span class="hljs-number">22</span>] = NumericFunction.LN;
+        retval[<span class="hljs-number">23</span>] = NumericFunction.LOG10;
+        retval[<span class="hljs-number">24</span>] = NumericFunction.ABS;
+        retval[<span class="hljs-number">25</span>] = NumericFunction.INT;
+        retval[<span class="hljs-number">26</span>] = NumericFunction.SIGN;
+        retval[<span class="hljs-number">27</span>] = NumericFunction.ROUND;
+        retval[<span class="hljs-number">28</span>] = <span class="hljs-keyword">new</span> Lookup();
+        retval[<span class="hljs-number">29</span>] = <span class="hljs-keyword">new</span> Index();
+        retval[<span class="hljs-number">30</span>] = <span class="hljs-keyword">new</span> Rept();
+        retval[<span class="hljs-number">31</span>] = TextFunction.MID;
+        retval[<span class="hljs-number">32</span>] = TextFunction.LEN;
+        retval[<span class="hljs-number">33</span>] = <span class="hljs-keyword">new</span> Value();
+        retval[<span class="hljs-number">34</span>] = BooleanFunction.TRUE;
+        retval[<span class="hljs-number">35</span>] = BooleanFunction.FALSE;
+        retval[<span class="hljs-number">36</span>] = BooleanFunction.AND;
+        retval[<span class="hljs-number">37</span>] = BooleanFunction.OR;
+        retval[<span class="hljs-number">38</span>] = BooleanFunction.NOT;
+        retval[<span class="hljs-number">39</span>] = NumericFunction.MOD;
+        <span class="hljs-comment">// 40: DCOUNT</span>
+        retval[<span class="hljs-number">41</span>] = <span class="hljs-keyword">new</span> DStarRunner(DStarRunner.DStarAlgorithmEnum.DSUM);
+        <span class="hljs-comment">// 42: DAVERAGE</span>
+        retval[<span class="hljs-number">43</span>] = <span class="hljs-keyword">new</span> DStarRunner(DStarRunner.DStarAlgorithmEnum.DMIN);
+        retval[<span class="hljs-number">44</span>] = <span class="hljs-keyword">new</span> DStarRunner(DStarRunner.DStarAlgorithmEnum.DMAX);
+        <span class="hljs-comment">// 45: DSTDEV</span>
+        retval[<span class="hljs-number">46</span>] = AggregateFunction.VAR;
+        <span class="hljs-comment">// 47: DVAR</span>
+        retval[<span class="hljs-number">48</span>] = TextFunction.TEXT;
+        <span class="hljs-comment">// 49: LINEST</span>
+        retval[<span class="hljs-number">50</span>] = <span class="hljs-keyword">new</span> Trend();
+        <span class="hljs-comment">// 51: LOGEST</span>
+        <span class="hljs-comment">// 52: GROWTH</span>
+
+        retval[<span class="hljs-number">56</span>] = FinanceFunction.PV;
+        retval[<span class="hljs-number">57</span>] = FinanceFunction.FV;
+        retval[<span class="hljs-number">58</span>] = FinanceFunction.NPER;
+        retval[<span class="hljs-number">59</span>] = FinanceFunction.PMT;
+        retval[<span class="hljs-number">60</span>] = <span class="hljs-keyword">new</span> Rate();
+        retval[<span class="hljs-number">61</span>] = <span class="hljs-keyword">new</span> Mirr();
+        retval[<span class="hljs-number">62</span>] = <span class="hljs-keyword">new</span> Irr();
+        retval[<span class="hljs-number">63</span>] = NumericFunction.RAND;
+        retval[<span class="hljs-number">64</span>] = <span class="hljs-keyword">new</span> Match();
+        retval[<span class="hljs-number">65</span>] = DateFunc.instance;
+        retval[<span class="hljs-number">66</span>] = <span class="hljs-keyword">new</span> TimeFunc();
+        retval[<span class="hljs-number">67</span>] = CalendarFieldFunction.DAY;
+        retval[<span class="hljs-number">68</span>] = CalendarFieldFunction.MONTH;
+        retval[<span class="hljs-number">69</span>] = CalendarFieldFunction.YEAR;
+        retval[<span class="hljs-number">70</span>] = WeekdayFunc.instance;
+        retval[<span class="hljs-number">71</span>] = CalendarFieldFunction.HOUR;
+        retval[<span class="hljs-number">72</span>] = CalendarFieldFunction.MINUTE;
+        retval[<span class="hljs-number">73</span>] = CalendarFieldFunction.SECOND;
+        retval[<span class="hljs-number">74</span>] = <span class="hljs-keyword">new</span> Now();
+        retval[<span class="hljs-number">75</span>] = <span class="hljs-keyword">new</span> Areas();
+        retval[<span class="hljs-number">76</span>] = <span class="hljs-keyword">new</span> Rows();
+        retval[<span class="hljs-number">77</span>] = <span class="hljs-keyword">new</span> Columns();
+        retval[FunctionID.OFFSET] = <span class="hljs-keyword">new</span> Offset(); <span class="hljs-comment">//nominally 78</span>
+
+        retval[<span class="hljs-number">82</span>] = TextFunction.SEARCH;
+        retval[<span class="hljs-number">83</span>] = MatrixFunction.TRANSPOSE;
+
+        <span class="hljs-comment">// 86: TYPE</span>
+
+        retval[<span class="hljs-number">97</span>] = NumericFunction.ATAN2;
+        retval[<span class="hljs-number">98</span>] = NumericFunction.ASIN;
+        retval[<span class="hljs-number">99</span>] = NumericFunction.ACOS;
+        retval[FunctionID.CHOOSE] = <span class="hljs-keyword">new</span> Choose(); <span class="hljs-comment">//nominally 100</span>
+        retval[<span class="hljs-number">101</span>] = <span class="hljs-keyword">new</span> Hlookup();
+        retval[<span class="hljs-number">102</span>] = <span class="hljs-keyword">new</span> Vlookup();
+
+        retval[<span class="hljs-number">105</span>] = LogicalFunction.ISREF;
+
+        retval[<span class="hljs-number">109</span>] = NumericFunction.LOG;
+
+        retval[<span class="hljs-number">111</span>] = TextFunction.CHAR;
+        retval[<span class="hljs-number">112</span>] = TextFunction.LOWER;
+        retval[<span class="hljs-number">113</span>] = TextFunction.UPPER;
+        retval[<span class="hljs-number">114</span>] = TextFunction.PROPER;
+        retval[<span class="hljs-number">115</span>] = TextFunction.LEFT;
+        retval[<span class="hljs-number">116</span>] = TextFunction.RIGHT;
+        retval[<span class="hljs-number">117</span>] = TextFunction.EXACT;
+        retval[<span class="hljs-number">118</span>] = TextFunction.TRIM;
+        retval[<span class="hljs-number">119</span>] = <span class="hljs-keyword">new</span> Replace();
+        retval[<span class="hljs-number">120</span>] = <span class="hljs-keyword">new</span> Substitute();
+        retval[<span class="hljs-number">121</span>] = <span class="hljs-keyword">new</span> Code();
+
+        retval[<span class="hljs-number">124</span>] = TextFunction.FIND;
+        <span class="hljs-comment">// 125: CELL</span>
+
+        retval[<span class="hljs-number">126</span>] = LogicalFunction.ISERR;
+        retval[<span class="hljs-number">127</span>] = LogicalFunction.ISTEXT;
+        retval[<span class="hljs-number">128</span>] = LogicalFunction.ISNUMBER;
+        retval[<span class="hljs-number">129</span>] = LogicalFunction.ISBLANK;
+        retval[<span class="hljs-number">130</span>] = <span class="hljs-keyword">new</span> T();
+        <span class="hljs-comment">// 131: N</span>
+        <span class="hljs-comment">// 140: DATEVALUE</span>
+        <span class="hljs-comment">// 141: TIMEVALUE</span>
+        <span class="hljs-comment">// 142: SLN</span>
+        <span class="hljs-comment">// 143: SYD</span>
+        <span class="hljs-comment">// 144: DDB</span>
+
+        retval[FunctionID.INDIRECT] = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// Indirect.evaluate has different signature</span>
+
+        retval[<span class="hljs-number">162</span>] = TextFunction.CLEAN;
+
+        retval[<span class="hljs-number">163</span>] = MatrixFunction.MDETERM;
+        retval[<span class="hljs-number">164</span>] = MatrixFunction.MINVERSE;
+        retval[<span class="hljs-number">165</span>] = MatrixFunction.MMULT;
+
+        retval[<span class="hljs-number">167</span>] = <span class="hljs-keyword">new</span> IPMT();
+        retval[<span class="hljs-number">168</span>] = <span class="hljs-keyword">new</span> PPMT();
+        retval[<span class="hljs-number">169</span>] = <span class="hljs-keyword">new</span> Counta();
+
+        retval[<span class="hljs-number">183</span>] = AggregateFunction.PRODUCT;
+        retval[<span class="hljs-number">184</span>] = NumericFunction.FACT;
+
+        <span class="hljs-comment">// 189: DPRODUCT</span>
+        retval[<span class="hljs-number">190</span>] = LogicalFunction.ISNONTEXT;
+
+        retval[<span class="hljs-number">194</span>] = AggregateFunction.VARP;
+        <span class="hljs-comment">// 195: DSTDEVP</span>
+        <span class="hljs-comment">// 196: DVARP</span>
+        retval[<span class="hljs-number">197</span>] = NumericFunction.TRUNC;
+        retval[<span class="hljs-number">198</span>] = LogicalFunction.ISLOGICAL;
+        <span class="hljs-comment">// 199: DCOUNTA</span>
+
+        <span class="hljs-comment">//204: USDOLLAR (YEN in BIFF3)</span>
+        <span class="hljs-comment">//205: FINDB</span>
+        <span class="hljs-comment">//206: SEARCHB</span>
+        <span class="hljs-comment">//207: REPLACEB</span>
+        <span class="hljs-comment">//208: LEFTB</span>
+        <span class="hljs-comment">//209: RIGHTB</span>
+        <span class="hljs-comment">//210: MIDB</span>
+        <span class="hljs-comment">//211: LENB</span>
+        retval[<span class="hljs-number">212</span>] = NumericFunction.ROUNDUP;
+        retval[<span class="hljs-number">213</span>] = NumericFunction.ROUNDDOWN;
+        <span class="hljs-comment">//214: ASC</span>
+        <span class="hljs-comment">//215: DBCS (JIS in BIFF3)</span>
+        retval[<span class="hljs-number">216</span>] = <span class="hljs-keyword">new</span> Rank();
+        retval[<span class="hljs-number">219</span>] = <span class="hljs-keyword">new</span> Address();
+        retval[<span class="hljs-number">220</span>] = <span class="hljs-keyword">new</span> Days360();
+        retval[<span class="hljs-number">221</span>] = <span class="hljs-keyword">new</span> Today();
+        <span class="hljs-comment">//222: VBD</span>
+
+        retval[<span class="hljs-number">227</span>] = AggregateFunction.MEDIAN;
+        retval[<span class="hljs-number">228</span>] = <span class="hljs-keyword">new</span> Sumproduct();
+        retval[<span class="hljs-number">229</span>] = NumericFunction.SINH;
+        retval[<span class="hljs-number">230</span>] = NumericFunction.COSH;
+        retval[<span class="hljs-number">231</span>] = NumericFunction.TANH;
+        retval[<span class="hljs-number">232</span>] = NumericFunction.ASINH;
+        retval[<span class="hljs-number">233</span>] = NumericFunction.ACOSH;
+        retval[<span class="hljs-number">234</span>] = NumericFunction.ATANH;
+        retval[<span class="hljs-number">235</span>] = <span class="hljs-keyword">new</span> DStarRunner(DStarRunner.DStarAlgorithmEnum.DGET);
+
+        <span class="hljs-comment">// 244: INFO</span>
+
+        <span class="hljs-comment">// 247: DB</span>
+        <span class="hljs-comment">// 252: FEQUENCY</span>
+        retval[<span class="hljs-number">252</span>] = Frequency.instance;
+
+        retval[FunctionID.EXTERNAL_FUNC] = <span class="hljs-keyword">null</span>; <span class="hljs-comment">// ExternalFunction is a FreeRefFunction, nominally 255</span>
+
+        retval[<span class="hljs-number">261</span>] = <span class="hljs-keyword">new</span> Errortype();
+
+        retval[<span class="hljs-number">269</span>] = AggregateFunction.AVEDEV;
+        <span class="hljs-comment">// 270: BETADIST</span>
+        <span class="hljs-comment">// 271: GAMMALN</span>
+        <span class="hljs-comment">// 272: BETAINV</span>
+        <span class="hljs-comment">// 273: BINOMDIST</span>
+        <span class="hljs-comment">// 274: CHIDIST</span>
+        <span class="hljs-comment">// 275: CHIINV</span>
+        retval[<span class="hljs-number">276</span>] = NumericFunction.COMBIN;
+        <span class="hljs-comment">// 277: CONFIDENCE</span>
+        <span class="hljs-comment">// 278:CRITBINOM</span>
+        retval[<span class="hljs-number">279</span>] = <span class="hljs-keyword">new</span> Even();
+        <span class="hljs-comment">// 280: EXPONDIST</span>
+        <span class="hljs-comment">// 281: FDIST</span>
+        <span class="hljs-comment">// 282: FINV</span>
+        <span class="hljs-comment">// 283: FISHER</span>
+        <span class="hljs-comment">// 284: FISHERINV</span>
+        retval[<span class="hljs-number">285</span>] = NumericFunction.FLOOR;
+        <span class="hljs-comment">// 286: GAMMADIST</span>
+        <span class="hljs-comment">// 287: GAMMAINV</span>
+        retval[<span class="hljs-number">288</span>] = NumericFunction.CEILING;
+        <span class="hljs-comment">// 289: HYPGEOMDIST</span>
+        <span class="hljs-comment">// 290: LOGNORMDIST</span>
+        <span class="hljs-comment">// 291: LOGINV</span>
+        <span class="hljs-comment">// 292: NEGBINOMDIST</span>
+        <span class="hljs-comment">// 293: NORMDIST</span>
+        <span class="hljs-comment">// 294: NORMSDIST</span>
+        <span class="hljs-comment">// 295: NORMINV</span>
+        <span class="hljs-comment">// 296: NORMSINV</span>
+        <span class="hljs-comment">// 297: STANDARDIZE</span>
+        retval[<span class="hljs-number">298</span>] = <span class="hljs-keyword">new</span> Odd();
+        <span class="hljs-comment">// 299: PERMUT</span>
+        retval[<span class="hljs-number">300</span>] = NumericFunction.POISSON;
+        <span class="hljs-comment">// 301: TDIST</span>
+        <span class="hljs-comment">// 302: WEIBULL</span>
+        retval[<span class="hljs-number">303</span>] = <span class="hljs-keyword">new</span> Sumxmy2();
+        retval[<span class="hljs-number">304</span>] = <span class="hljs-keyword">new</span> Sumx2my2();
+        retval[<span class="hljs-number">305</span>] = <span class="hljs-keyword">new</span> Sumx2py2();
+        <span class="hljs-comment">// 306: CHITEST</span>
+        <span class="hljs-comment">// 307: CORREL</span>
+        <span class="hljs-comment">// 308: COVAR</span>
+        <span class="hljs-comment">// 309: FORECAST</span>
+        <span class="hljs-comment">// 310: FTEST</span>
+        retval[<span class="hljs-number">311</span>] = <span class="hljs-keyword">new</span> Intercept();
+        <span class="hljs-comment">// 312: PEARSON</span>
+        <span class="hljs-comment">// 313: RSQ</span>
+        <span class="hljs-comment">// 314: STEYX</span>
+        retval[<span class="hljs-number">315</span>] = <span class="hljs-keyword">new</span> Slope();
+        <span class="hljs-comment">// 316: TTEST</span>
+        <span class="hljs-comment">// 317: PROB</span>
+        retval[<span class="hljs-number">318</span>] = AggregateFunction.DEVSQ;
+        retval[<span class="hljs-number">319</span>] = AggregateFunction.GEOMEAN;
+        <span class="hljs-comment">// 320: HARMEAN</span>
+        retval[<span class="hljs-number">321</span>] = AggregateFunction.SUMSQ;
+        <span class="hljs-comment">// 322: KURT</span>
+        <span class="hljs-comment">// 323: SKEW</span>
+        <span class="hljs-comment">// 324: ZTEST</span>
+        retval[<span class="hljs-number">325</span>] = AggregateFunction.LARGE;
+        retval[<span class="hljs-number">326</span>] = AggregateFunction.SMALL;
+        <span class="hljs-comment">// 327: QUARTILE</span>
+        retval[<span class="hljs-number">328</span>] = AggregateFunction.PERCENTILE;
+        <span class="hljs-comment">// 329: PERCENTRANK</span>
+        retval[<span class="hljs-number">330</span>] = <span class="hljs-keyword">new</span> Mode();
+        <span class="hljs-comment">// 331: TRIMMEAN</span>
+        <span class="hljs-comment">// 332: TINV</span>
+
+        retval[<span class="hljs-number">336</span>] = TextFunction.CONCATENATE;
+        retval[<span class="hljs-number">337</span>] = NumericFunction.POWER;
+
+        retval[<span class="hljs-number">342</span>] = NumericFunction.RADIANS;
+        retval[<span class="hljs-number">343</span>] = NumericFunction.DEGREES;
+        retval[<span class="hljs-number">344</span>] = <span class="hljs-keyword">new</span> Subtotal();
+        retval[<span class="hljs-number">345</span>] = <span class="hljs-keyword">new</span> Sumif();
+        retval[<span class="hljs-number">346</span>] = <span class="hljs-keyword">new</span> Countif();
+        retval[<span class="hljs-number">347</span>] = <span class="hljs-keyword">new</span> Countblank();
+
+        <span class="hljs-comment">// 350: ISPMT</span>
+        <span class="hljs-comment">// 351: DATEDIF</span>
+        <span class="hljs-comment">// 352: DATESTRING</span>
+        <span class="hljs-comment">// 353: NUMBERSTRING</span>
+        retval[<span class="hljs-number">354</span>] = <span class="hljs-keyword">new</span> Roman();
+
+        <span class="hljs-comment">// 358: GETPIVOTDATA</span>
+        retval[<span class="hljs-number">359</span>] = <span class="hljs-keyword">new</span> Hyperlink();
+        <span class="hljs-comment">// 360: PHONETIC</span>
+        <span class="hljs-comment">// 361: AVERAGEA</span>
+        retval[<span class="hljs-number">362</span>] = MinaMaxa.MAXA;
+        retval[<span class="hljs-number">363</span>] = MinaMaxa.MINA;
+        <span class="hljs-comment">// 364: STDEVPA</span>
+        <span class="hljs-comment">// 365: VARPA</span>
+        <span class="hljs-comment">// 366: STDEVA</span>
+        <span class="hljs-comment">// 367: VARA</span>
+    }
+</code></pre>
+
 
                             </section>
 
@@ -264,14 +573,15 @@
                         "ref": "style-support.md",
                         "articles": []
                     },
-                    "dir": "neutral"
+                    "dir": "ltr"
                 },
                 "config": {
                     "gitbook": "*",
                     "theme": "default",
                     "variables": {},
-                    "plugins": [],
+                    "plugins": ["livereload"],
                     "pluginsConfig": {
+                        "livereload": {},
                         "highlight": {},
                         "search": {},
                         "lunr": {"maxIndexSize": 1000000, "ignoreSpecialCharacters": false},
@@ -320,8 +630,8 @@
                         "print": "styles/print.css"
                     }
                 },
-                "file": {"path": "formula-support.md", "mtime": "2019-06-01T09:16:02.997Z", "type": "markdown"},
-                "gitbook": {"version": "3.2.3", "time": "2019-06-01T10:13:38.319Z"},
+                "file": {"path": "formula-support.md", "mtime": "2019-06-30T05:38:43.111Z", "type": "markdown"},
+                "gitbook": {"version": "3.2.3", "time": "2019-06-30T05:49:12.537Z"},
                 "basePath": ".",
                 "book": {"language": ""}
             });
@@ -332,6 +642,9 @@
 
 <script src="gitbook/gitbook.js"></script>
 <script src="gitbook/theme.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
 
 
 <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
