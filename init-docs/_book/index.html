@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="gitbook/style.css">
 
 
+    <link rel="stylesheet" href="gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+
+
+    <link rel="stylesheet" href="gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+
+
     <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
 
 
@@ -28,6 +34,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+
+    <link rel="next" href="start.html"/>
 
 
 </head>
@@ -60,14 +69,14 @@
 
                 </li>
 
-                <li class="chapter " data-level="1.2">
-            
-                <span>
+                <li class="chapter " data-level="1.2" data-path="start.html">
+
+                    <a href="start.html">
             
                     
                     快速开始
-            
-                </span>
+
+                    </a>
 
 
                     <ul class="articles">
@@ -306,6 +315,11 @@
         </div>
 
 
+        <a href="start.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 快速开始">
+            <i class="fa fa-angle-right"></i>
+        </a>
+
+
     </div>
 
     <script>
@@ -320,7 +334,8 @@
                         "title": "快速开始",
                         "level": "1.2",
                         "depth": 1,
-                        "ref": "",
+                        "path": "start.md",
+                        "ref": "start.md",
                         "articles": [{
                             "title": "依赖",
                             "level": "1.2.1",
@@ -350,12 +365,16 @@
                     "gitbook": "*",
                     "theme": "default",
                     "variables": {},
-                    "plugins": ["livereload"],
+                    "plugins": ["chapter-fold", "hide-element", "back-to-top-button", "livereload"],
                     "pluginsConfig": {
+                        "chapter-fold": {},
                         "livereload": {},
-                        "highlight": {},
                         "search": {},
                         "lunr": {"maxIndexSize": 1000000, "ignoreSpecialCharacters": false},
+                        "hide-element": {"elements": [".gitbook-link"]},
+                        "fontsettings": {"theme": "white", "family": "sans", "size": 2},
+                        "highlight": {},
+                        "back-to-top-button": {},
                         "sharing": {
                             "facebook": true,
                             "twitter": true,
@@ -365,7 +384,6 @@
                             "vk": false,
                             "all": ["facebook", "google", "twitter", "weibo", "instapaper"]
                         },
-                        "fontsettings": {"theme": "white", "family": "sans", "size": 2},
                         "theme-default": {
                             "styles": {
                                 "website": "styles/website.css",
@@ -402,7 +420,7 @@
                     }
                 },
                 "file": {"path": "README.md", "mtime": "2019-06-30T05:34:06.212Z", "type": "markdown"},
-                "gitbook": {"version": "3.2.3", "time": "2019-06-30T05:49:12.537Z"},
+                "gitbook": {"version": "3.2.3", "time": "2019-06-30T07:30:00.778Z"},
                 "basePath": ".",
                 "book": {"language": ""}
             });
@@ -413,6 +431,15 @@
 
 <script src="gitbook/gitbook.js"></script>
 <script src="gitbook/theme.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
 
 
 <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>

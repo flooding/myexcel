@@ -1,7 +1,7 @@
 bui# Summary
 
 * [简介](README.md)
-* 快速开始
+* [快速开始](start.md)
     * [依赖](depen.md)
     * [导入](import.md)
     * [导出](export.md)
