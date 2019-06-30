@@ -1,7 +1,7 @@
 # Summary
 
 * [简介](README.md)
-* [依赖](dependency.md)
+* [快速开始](start.md)
 * [API](api.md)
 * [自定义ExcelBuilder](extend.md)
 * [样式支持](style-support.md)

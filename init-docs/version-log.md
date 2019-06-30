@@ -1,6 +1,43 @@
-### release-2.4.0（2019/06/01）
-- SaxExcelReader支持.xls文件读取；
-- 删除DefaultExcelReader并行读取方法；
+### release-2.7.0（2019/06/29）
+- 修复在SXSSF模式下因提前写入磁盘导致合并单元格错误问题；
+- 新增DefaultExcelBuilder、DefaultStreamExcelBuilder多级表头功能；
+- 新增读取Excel时间戳（Timestamp）的支持；
+- 新增DefaultStreamExcelBuilder导出zip压缩文件的支持（DefaultStreamExcelBuilder.buildAsZip("xxxx")）；
+- 新增AttachmentExportUtil对一般性Path导出支持；
+- 优化DefaultStreamExcelBuilder转化workbook为path流程，使用提供的线程池异步转化，提升导出效率；
+- 优化SXSSF默认窗口内存保存行数为1；
+- 优化默认workbook类型为SXSSF，降低实际生产使用中内存占用；
+- 优化DefaultStreamExcelBuilder模型，降低一次性追加数据导致的内存急剧增长问题（使用Jprofiler测试，一百万数据，除首次导出所占内存较高外(三四百兆内)，稳定占用内存一百兆左右）；
+- 优化导出Excel模型边界定义，降低代码错误的可能性；
+
+### release-2.6.2（2019/06/22）
+- 修复使用自定义方式导致空指针问题；
+- 新增读取自定义终止接口；
+
+### release-2.6.1（2019/06/19）
+- 修复SaxExcelReader的sheet设置无法生效问题；
+
+### release-2.6.0（2019/06/18）
+- DefaultStreamExcelBuilder新增文件分割，允许设定生成的Excel容量，超过该容量后会自动创建新的Excel；
+
+### release-2.5.1（2019/06/15）
+- 修复追加sheet的数据为空时导致的追加失败问题；
+- 修复追加sheet导致的原配置失效问题；
+- 修复使用@ExcelTable导致的静态字段被导出问题，默认静态字段不被导出，也可通过ignoreStaticFields=false取消；
+- 修改使用同一类类型，sheet名称无法自增长问题；
+- 修复选择自动列宽设置错误问题；
+- 修复设置workbook类型部分情况下不生效问题；
+- 修复DefaultStreamExcelBuilder无法直接固定标题行问题；
+- 新增DefaultExcelBuilder\DefaultStreamExcelBuilder自动换行，默认为true，可通过@ExcelTable中wrapText取消；
+- 修改DefaultExcelBuilder\DefaultStreamExcelBuilder部分数据结构为LinkedList，降低内存要求；
+- 修改快速移除数据逻辑，提升数据处理效率；
+- 优化部分转换操作，避免海里数据列表整体复制；
+
+
+### release-2.5.0（2019/05/30）
+- 模板导出支持自动换行（word-break）；
+- DefaultExcelBuilder、DefaultStreamExcelBuilder支持固定标题；
+- DefaultExcelBuilder、DefaultStreamExcelBuilder支持Bean属性类型强转为String，避免诸如Long类型数据变成科学计数法等问题；
 
 ### release-2.3.4（2019/05/30）
 - 修复ThymeleafExcelBuilder导出时FileSystemNotFound异常问题；

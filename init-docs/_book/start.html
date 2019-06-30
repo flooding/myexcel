@@ -1,0 +1,778 @@
+<!DOCTYPE HTML>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>快速开始 · GitBook</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="">
+    <meta name="generator" content="GitBook 3.2.3">
+
+
+    <link rel="stylesheet" href="gitbook/style.css">
+
+
+    <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+
+
+    <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+
+
+    <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+
+
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+
+    <link rel="next" href="api.html"/>
+
+
+    <link rel="prev" href="./"/>
+
+
+</head>
+<body>
+
+<div class="book">
+    <div class="book-summary">
+
+
+        <div id="book-search-input" role="search">
+            <input type="text" placeholder="Type to search"/>
+        </div>
+
+
+        <nav role="navigation">
+
+
+            <ul class="summary">
+
+
+                <li class="chapter " data-level="1.1" data-path="./">
+
+                    <a href="./">
+
+
+                        简介
+
+                    </a>
+
+
+                </li>
+
+                <li class="chapter active" data-level="1.2" data-path="start.html">
+
+                    <a href="start.html">
+
+
+                        快速开始
+
+                    </a>
+
+
+                </li>
+
+                <li class="chapter " data-level="1.3" data-path="api.html">
+
+                    <a href="api.html">
+
+
+                        API
+
+                    </a>
+
+
+                </li>
+
+                <li class="chapter " data-level="1.4" data-path="extend.html">
+
+                    <a href="extend.html">
+
+
+                        自定义ExcelBuilder
+
+                    </a>
+
+
+                </li>
+
+                <li class="chapter " data-level="1.5" data-path="style-support.html">
+
+                    <a href="style-support.html">
+
+
+                        样式支持
+
+                    </a>
+
+
+                </li>
+
+                <li class="chapter " data-level="1.6" data-path="formula-support.html">
+
+                    <a href="formula-support.html">
+
+
+                        公式支持
+
+                    </a>
+
+
+                </li>
+
+                <li class="chapter " data-level="1.7" data-path="faq.html">
+
+                    <a href="faq.html">
+
+
+                        常见问题
+
+                    </a>
+
+
+                </li>
+
+                <li class="chapter " data-level="1.8" data-path="version-log.html">
+
+                    <a href="version-log.html">
+
+
+                        版本日志
+
+                    </a>
+
+
+                </li>
+
+                <li class="chapter " data-level="1.9" data-path="contact-us.html">
+
+                    <a href="contact-us.html">
+
+
+                        联系我们
+
+                    </a>
+
+
+                </li>
+
+
+                <li class="divider"></li>
+
+                <li>
+                    <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                        Published with GitBook
+                    </a>
+                </li>
+            </ul>
+
+
+        </nav>
+
+
+    </div>
+
+    <div class="book-body">
+
+        <div class="body-inner">
+
+
+            <div class="book-header" role="navigation">
+
+
+                <!-- Title -->
+                <h1>
+                    <i class="fa fa-circle-o-notch fa-spin"></i>
+                    <a href=".">快速开始</a>
+                </h1>
+            </div>
+
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+
+                    <div id="book-search-results">
+                        <div class="search-noresults">
+
+                            <section class="normal markdown-section">
+
+                                <ul>
+                                    <li><a href="#import">&#x5BFC;&#x5165;&#xFF08;Import&#xFF09;</a></li>
+                                    <li><a href="#export">&#x5BFC;&#x51FA;&#xFF08;Export&#xFF09;</a></li>
+                                </ul>
+                                <h1 id="&#x5BFC;&#x5165;-import"><a id="import">&#x5BFC;&#x5165;-Import</a></h1>
+                                <pre><code class="lang-java">URL htmlToExcelEampleURL = <span
+                                        class="hljs-keyword">this</span>.getClass().getResource(<span
+                                        class="hljs-string">&quot;/templates/read_example.xlsx&quot;</span>);
+Path path = Paths.get(htmlToExcelEampleURL.toURI());
+
+<span class="hljs-comment">// &#x65B9;&#x5F0F;&#x4E00;&#xFF1A;&#x5168;&#x90E8;&#x8BFB;&#x53D6;&#x540E;&#x5904;&#x7406;</span>
+List&lt;ArtCrowd&gt; result = DefaultExcelReader.of(ArtCrowd.class)
+        .sheet(<span class="hljs-number">0</span>) <span class="hljs-comment">// 0&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x4E2A;&#xFF0C;&#x5982;&#x679C;&#x4E3A;0&#xFF0C;&#x53EF;&#x7701;&#x7565;&#x8BE5;&#x64CD;&#x4F5C;</span>
+        .rowFilter(row -&gt; row.getRowNum() &gt; <span class="hljs-number">0</span>) <span class="hljs-comment">// &#x5982;&#x65E0;&#x9700;&#x8FC7;&#x6EE4;&#xFF0C;&#x53EF;&#x7701;&#x7565;&#x8BE5;&#x64CD;&#x4F5C;&#xFF0C;0&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x884C;</span>
+        .beanFilter(ArtCrowd::isDance) <span class="hljs-comment">// bean&#x8FC7;&#x6EE4;</span>
+        .read(path.toFile());<span class="hljs-comment">// &#x53EF;&#x63A5;&#x6536;inputStream</span>
+
+<span class="hljs-comment">// &#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;&#x8BFB;&#x53D6;&#x4E00;&#x884C;&#x5904;&#x7406;&#x4E00;&#x884C;&#xFF0C;&#x53EF;&#x81EA;&#x884C;&#x51B3;&#x5B9A;&#x7EC8;&#x6B62;&#x6761;&#x4EF6;</span>
+DefaultExcelReader.of(ArtCrowd.class)
+        .sheet(<span class="hljs-number">0</span>) <span class="hljs-comment">// 0&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x4E2A;&#xFF0C;&#x5982;&#x679C;&#x4E3A;0&#xFF0C;&#x53EF;&#x7701;&#x7565;&#x8BE5;&#x64CD;&#x4F5C;</span>
+        .rowFilter(row -&gt; row.getRowNum() &gt; <span class="hljs-number">0</span>) <span class="hljs-comment">// &#x5982;&#x65E0;&#x9700;&#x8FC7;&#x6EE4;&#xFF0C;&#x53EF;&#x7701;&#x7565;&#x8BE5;&#x64CD;&#x4F5C;&#xFF0C;0&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x884C;</span>
+        .beanFilter(ArtCrowd::isDance) <span class="hljs-comment">// bean&#x8FC7;&#x6EE4;</span>
+        .readThen(path.toFile() ,artCrowd -&gt; System.out.println(artCrowd.getName));<span class="hljs-comment">// &#x53EF;&#x63A5;&#x6536;inputStream</span>
+
+<span class="hljs-comment">// &#x65B9;&#x5F0F;&#x4E09;&#xFF1A;&#x5168;&#x90E8;&#x8BFB;&#x53D6;&#x540E;&#x5904;&#x7406;&#xFF0C;SAX&#x6A21;&#x5F0F;&#xFF0C;&#x907F;&#x514D;OOM&#xFF0C;&#x5EFA;&#x8BAE;&#x5927;&#x91CF;&#x6570;&#x636E;&#x4F7F;&#x7528;</span>
+List&lt;ArtCrowd&gt; result = SaxExcelReader.of(ArtCrowd.class)
+        .sheet(<span class="hljs-number">0</span>) <span class="hljs-comment">// 0&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x4E2A;&#xFF0C;&#x5982;&#x679C;&#x4E3A;0&#xFF0C;&#x53EF;&#x7701;&#x7565;&#x8BE5;&#x64CD;&#x4F5C;</span>
+        .rowFilter(row -&gt; row.getRowNum() &gt; <span class="hljs-number">0</span>) <span class="hljs-comment">// &#x5982;&#x65E0;&#x9700;&#x8FC7;&#x6EE4;&#xFF0C;&#x53EF;&#x7701;&#x7565;&#x8BE5;&#x64CD;&#x4F5C;&#xFF0C;0&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x884C;</span>
+        .beanFilter(ArtCrowd::isDance) <span class="hljs-comment">// bean&#x8FC7;&#x6EE4;</span>
+        .read(path.toFile());<span class="hljs-comment">// &#x53EF;&#x63A5;&#x6536;inputStream</span>
+
+<span class="hljs-comment">// &#x65B9;&#x5F0F;&#x56DB;&#xFF1A;&#x8BFB;&#x53D6;&#x4E00;&#x884C;&#x5904;&#x7406;&#x4E00;&#x884C;&#xFF0C;&#x53EF;&#x81EA;&#x884C;&#x51B3;&#x5B9A;&#x7EC8;&#x6B62;&#x6761;&#x4EF6;&#xFF0C;SAX&#x6A21;&#x5F0F;&#xFF0C;&#x907F;&#x514D;OOM&#xFF0C;&#x5EFA;&#x8BAE;&#x5927;&#x91CF;&#x6570;&#x636E;&#x4F7F;&#x7528;</span>
+SaxExcelReader.of(ArtCrowd.class)
+        .sheet(<span class="hljs-number">0</span>) <span class="hljs-comment">// 0&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x4E2A;&#xFF0C;&#x5982;&#x679C;&#x4E3A;0&#xFF0C;&#x53EF;&#x7701;&#x7565;&#x8BE5;&#x64CD;&#x4F5C;</span>
+        .rowFilter(row -&gt; row.getRowNum() &gt; <span class="hljs-number">0</span>) <span class="hljs-comment">// &#x5982;&#x65E0;&#x9700;&#x8FC7;&#x6EE4;&#xFF0C;&#x53EF;&#x7701;&#x7565;&#x8BE5;&#x64CD;&#x4F5C;&#xFF0C;0&#x4EE3;&#x8868;&#x7B2C;&#x4E00;&#x884C;</span>
+        .beanFilter(ArtCrowd::isDance) <span class="hljs-comment">// bean&#x8FC7;&#x6EE4;</span>
+        .readThen(path.toFile() ,artCrowd -&gt; System.out.println(artCrowd.getName));<span class="hljs-comment">// &#x53EF;&#x63A5;&#x6536;inputStream</span>
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span
+                                            class="hljs-title">ArtCrowd</span> </span>{
+    <span class="hljs-comment">// index&#x4EE3;&#x8868;&#x5217;&#x7D22;&#x5F15;&#xFF0C;&#x4ECE;0&#x5F00;&#x59CB;</span>
+    <span class="hljs-meta">@ExcelColumn</span>(index = <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">private</span> String name;
+
+    <span class="hljs-meta">@ExcelColumn</span>(index = <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">private</span> String age;
+
+    <span class="hljs-meta">@ExcelColumn</span>(index = <span class="hljs-number">2</span>,dateFormatPattern=<span
+                                            class="hljs-string">&quot;yyyy-MM-dd&quot;</span>)
+    <span class="hljs-keyword">private</span> Date birthday;
+}
+</code></pre>
+                                <p>&#x5BFC;&#x5165;<code>&#x5FC5;&#x987B;</code>&#x4F7F;&#x7528;&#x6CE8;&#x89E3;&#xFF1A;
+                                    @ExcelColumn(index,dateFormatPattern)</p>
+                                <p>&#x5BF9;&#x5E94;&#x6CE8;&#x89E3;&#x8BE6;&#x60C5;&#x8BF7;&#x89C1;&#xFF1A;<a
+                                        href="https://github.com/liaochong/myexcel/wiki/Annotation" target="_blank">&#x6CE8;&#x89E3;</a>
+                                </p>
+                                <p>&#x64CD;&#x4F5C;API&#x8BF7;&#x53C2;&#x89C1; <a
+                                        href="https://github.com/liaochong/myexcel/wiki/Operation-API" target="_blank">API</a>
+                                </p>
+                                <h1 id="&#x5BFC;&#x51FA;-export"><a id="export">&#x5BFC;&#x51FA;-Export</a></h1>
+                                <blockquote>
+                                    <p>&#x5982;&#x53EA;&#x662F;&#x7B80;&#x5355;&#x5217;&#x8868;&#x5BFC;&#x51FA;&#xFF0C;&#x65E0;&#x9700;&#x9009;&#x5B9A;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#xFF0C;&#x8BF7;&#x76F4;&#x63A5;&#x8DF3;&#x81F3;&#x4E0B;&#x65B9;<a
+                                            href="#DefaultExcelBuilder">DefaultExcelBuilder/DefaultStreamExcelBuilder</a>&#x90E8;&#x5206;
+                                    </p>
+                                </blockquote>
+                                <h2 id="1&#x5BFC;&#x51FA;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x9009;&#x5B9A;">1.&#x5BFC;&#x51FA;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x9009;&#x5B9A;</h2>
+                                <ol>
+                                    <li><p>&#x4EE5;&#x4E0B;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x9ED8;&#x8BA4;&#x5747;&#x672A;&#x88AB;&#x5F15;&#x5165;&#xFF0C;&#x4F7F;&#x7528;&#x8005;&#x53EF;&#x6839;&#x636E;&#x81EA;&#x8EAB;&#x9700;&#x8981;&#x9009;&#x62E9;&#x5728;pom.xml&#x4E2D;&#x58F0;&#x660E;&#x5F15;&#x5165;&#x3002;</p>
+                                        <p> The following template engine is not introduced by default except Beetl.
+                                            Users can choose to introduce the introduction in pom.xml according to their
+                                            needs.</p>
+                                    </li>
+                                    <li><p>&#x4EE5;&#x4E0B;&#x6A21;&#x677F;&#x5F15;&#x64CE;&#x7248;&#x672C;&#x4E3A;&#x6700;&#x4F4E;&#x7248;&#x672C;&#x53F7;&#x3002;</p>
+                                        <p> The following template engine version is the lowest version number.</p>
+                                    </li>
+                                </ol>
+                                <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.ibeetl<span
+                                            class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>beetl<span
+                                            class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.7.23<span class="hljs-tag">&lt;/<span
+                                            class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.freemarker<span class="hljs-tag">&lt;/<span
+                                            class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>freemarker<span class="hljs-tag">&lt;/<span
+                                            class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.3.23<span class="hljs-tag">&lt;/<span
+                                            class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.codehaus.groovy<span
+                                            class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>groovy-templates<span
+                                            class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.4.13<span class="hljs-tag">&lt;/<span
+                                            class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.thymeleaf<span class="hljs-tag">&lt;/<span
+                                            class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>thymeleaf<span class="hljs-tag">&lt;/<span
+                                            class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.6.RELEASE<span class="hljs-tag">&lt;/<span
+                                            class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+                                <h2 id="2workbook&#x751F;&#x6210;">2.Workbook&#x751F;&#x6210;</h2>
+                                <ol>
+                                    <li>&#x5DF2;&#x5B58;&#x5728;Html&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;Html&#x6587;&#x4EF6;&#x4E0D;&#x5C40;&#x9650;&#x4E8E;&#x653E;&#x5728;&#x9879;&#x76EE;&#x7684;classpath&#xFF08;&#x5982;&#xFF1A;resources&#xFF09;&#x4E0B;&#xFF0C;&#x4E5F;&#x65E0;&#x9700;&#x6A21;&#x677F;&#x5F15;&#x64CE;
+                                        ```java
+                                        // get html file
+                                        File htmlFile = new File(&quot;/Users/liaochong/Downloads/example.html&quot;);
+                                    </li>
+                                </ol>
+                                <p>// read the html file and use default excel style to create excel
+                                    Workbook workbook =
+                                    HtmlToExcelFactory.readHtml(htmlFile).useDefaultStyle().build();</p>
+                                <p>// this is a example,you can write the workbook to any valid outputstream
+                                    FileExportUtil.export(workbook, new File(&quot;/Users/liaochong/Downloads/excel.xlsx&quot;));</p>
+                                <pre><code>2. &#x4F7F;&#x7528;&#x5185;&#x7F6E;&#x7684;Freemarker&#x7B49;&#x6A21;&#x677F;&#x5F15;&#x64CE;Excel&#x6784;&#x5EFA;&#x5668;&#xFF0C;&#x6A21;&#x677F;&#x6587;&#x4EF6;&#x5E94;&#x5F53;&#x5B58;&#x653E;&#x5728;classpath&#x4E0B;&#xFF0C;&#x5177;&#x4F53;&#x8BF7;&#x53C2;&#x7167;&#x9879;&#x76EE;&#x4E2D;&#x7684;example
+```java
+/**
+* use non-default-style excel builder
+* &#x6A21;&#x677F;&#x6587;&#x4EF6;&#x653E;&#x7F6E;&#x5728;resources&#x4E0B;
+*
+* @param response response
+*/
+@GetMapping(&quot;/freemarker/example&quot;)
+public void build(HttpServletResponse response) {
+     Map&lt;String, Object&gt; dataMap = this.getDataMap();
+
+     ExcelBuilder excelBuilder = new FreemarkerExcelBuilder();
+     Workbook workbook = excelBuilder
+                         .template(&quot;/templates/freemarkerToExcelExample.ftl&quot;)
+                         .build(dataMap);
+     AttachmentExportUtil.export(workbook, &quot;freemarker_excel&quot;, response);
+}
+
+/**
+* use default-style excel builder
+* &#x6A21;&#x677F;&#x6587;&#x4EF6;&#x653E;&#x7F6E;&#x5728;resources&#x4E0B;
+*
+* @param response response
+*/
+@GetMapping(&quot;/freemarker/defaultStyle/example&quot;)
+public void buildWithDefaultStyle(HttpServletResponse response) {
+    Map&lt;String, Object&gt; dataMap = this.getDataMap();
+
+    ExcelBuilder excelBuilder = new FreemarkerExcelBuilder();
+    Workbook workbook = excelBuilder
+                .template(&quot;/templates/freemarkerToExcelExample.ftl&quot;)
+                .useDefaultStyle()
+                .build(dataMap);
+    AttachmentExportUtil.export(workbook, &quot;freemarker_excel&quot;, response);
+}
+
+private Map&lt;String, Object&gt; getDataMap() {
+    Map&lt;String, Object&gt; dataMap = new HashMap&lt;&gt;();
+    dataMap.put(&quot;sheetName&quot;, &quot;freemarker_excel_example&quot;);
+
+    List&lt;String&gt; titles = new ArrayList&lt;&gt;();
+    titles.add(&quot;Category&quot;);
+    titles.add(&quot;Product Name&quot;);
+    titles.add(&quot;Count&quot;);
+    dataMap.put(&quot;titles&quot;, titles);
+
+    List&lt;Product&gt; data = new ArrayList&lt;&gt;();
+    for (int i = 0; i &lt; 10; i++) {
+        Product product = new Product();
+        if (i % 2 == 0) {
+            product.setCategory(&quot;&#x852C;&#x83DC;&quot;);
+            product.setName(&quot;&#x5C0F;&#x767D;&#x83DC;&quot;);
+            product.setCount(100);
+        } else {
+            product.setCategory(&quot;&#x7535;&#x5B50;&#x4EA7;&#x54C1;&quot;);
+            product.setName(&quot;ipad&quot;);
+            product.setCount(999);
+        }
+        data.add(product);
+    }
+    dataMap.put(&quot;data&quot;, data);
+    return dataMap;
+}
+</code></pre>
+                                <ol>
+                                    <li>&#x9ED8;&#x8BA4;&#x6A21;&#x677F;&#x6784;&#x5EFA;&#x5668;&#xFF08;<a
+                                            id="DefaultExcelBuilder">DefaultExcelBuilder/DefaultStreamExcelBuilder</a>&#xFF09;&#x4F7F;&#x7528;&#xFF0C;&#x65E0;&#x9700;&#x6A21;&#x677F;&#x5F15;&#x64CE;
+                                    </li>
+                                    <li>3.1 &#x6CE8;&#x89E3;&#x65B9;&#x5F0F;&#xFF08;&#x63A8;&#x8350;&#xFF09;
+                                        ```java
+                                        /**
+                                    </li>
+                                    <li>&#x65B9;&#x5F0F;&#x4E00;&#xFF1A;&#x666E;&#x901A;&#x65B9;&#x5F0F;&#x5BFC;&#x51FA;
+                                        */
+                                        @GetMapping(&quot;/default/excel/example&quot;)
+                                        public void defaultBuild(HttpServletResponse response) throws Exception {
+                                        List
+                                        <artcrowd> dataList = this.getDataList();
+                                            Workbook workbook = DefaultExcelBuilder.of(ArtCrowd.class)
+                                            <pre><code>      .build(dataList);
+</code></pre>
+                                            AttachmentExportUtil.export(workbook, &quot;&#x827A;&#x672F;&#x751F;&#x4FE1;&#x606F;&quot;,
+                                            response);
+                                            // &#x52A0;&#x5BC6;&#x5BFC;&#x51FA;
+                                            AttachmentExportUtil.encryptExport(workbook, &quot;&#x827A;&#x672F;&#x751F;&#x4FE1;&#x606F;&quot;,
+                                            response,&quot;123456&quot;);
+                                            }
+                                        </artcrowd>
+                                    </li>
+                                </ol>
+                                <p>/**</p>
+                                <ul>
+                                    <li>&#x65B9;&#x5F0F;&#x4E8C;&#xFF1A;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x5F0F;&#x5BFC;&#x51FA;&#xFF0C;&#x5206;&#x6279;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x5206;&#x6279;&#x5199;&#x5165;Excel&#xFF0C;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x4E0A;&#x5B9E;&#x73B0;&#x6D77;&#x91CF;&#x6570;&#x636E;&#x5BFC;&#x51FA;
+                                        */
+                                        @GetMapping(&quot;/default/excel/stream/example&quot;)
+                                        public void streamBuild(HttpServletResponse response) throws Exception {
+                                        // &#x663E;&#x5F0F;&#x6807;&#x660E;&#x5F00;&#x59CB;&#x6784;&#x5EFA;
+                                        DefaultStreamExcelBuilder defaultExcelBuilder =
+                                        DefaultStreamExcelBuilder.of(ArtCrowd.class)
+                                        <pre><code>      .threadPool(Executors.newFixedThreadPool(10))
+      .start();
+</code></pre>
+                                        // &#x591A;&#x7EBF;&#x7A0B;&#x5F02;&#x6B65;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E76;&#x8FFD;&#x52A0;&#x81F3;excel&#xFF0C;join&#x7B49;&#x5F85;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6210;
+                                        List
+                                        <completablefuture> futures = new ArrayList&lt;&gt;();
+                                            for (int i = 0; i &lt; 100; i++) {
+                                            <pre><code>  CompletableFuture future = CompletableFuture.runAsync(() -&gt; {
+      List&lt;ArtCrowd&gt; dataList = this.getDataList();
+      // &#x6570;&#x636E;&#x8FFD;&#x52A0;
+      defaultExcelBuilder.append(dataList);
+  });
+  futures.add(future);
+</code></pre>
+                                            }
+                                            futures.forEach(CompletableFuture::join);
+                                            // &#x6700;&#x7EC8;&#x6784;&#x5EFA;
+                                            Workbook workbook = defaultExcelBuilder.build();
+                                            AttachmentExportUtil.export(workbook, &quot;&#x827A;&#x672F;&#x751F;&#x4FE1;&#x606F;&quot;,
+                                            response);
+                                            }
+                                        </completablefuture>
+                                    </li>
+                                </ul>
+                                <p>// &#x6570;&#x636E;&#x83B7;&#x53D6;
+                                    private List
+                                    <artcrowd> getDataList() {
+                                        List
+                                        <artcrowd> dataList = new ArrayList&lt;&gt;(1000);
+                                            for (int i = 0; i &lt; 1000; i++) {
+                                            ArtCrowd artCrowd = new ArtCrowd();
+                                            if (i % 2 == 0) {
+                                            artCrowd.setName(&quot;&#x5F20;&#x4E09;&quot;);
+                                            artCrowd.setAge(19);
+                                            artCrowd.setGender(&quot;Man&quot;);
+                                            artCrowd.setPaintingLevel(&quot;&#x4E00;&#x7EA7;&#x8BC1;&#x4E66;&quot;);
+                                            artCrowd.setDance(false);
+                                            artCrowd.setAssessmentTime(LocalDateTime.now());
+                                            artCrowd.setHobby(&quot;&#x6454;&#x8DE4;&quot;);
+                                            } else {
+                                            artCrowd.setName(&quot;&#x674E;&#x56DB;&quot;);
+                                            artCrowd.setAge(18);
+                                            artCrowd.setGender(&quot;Woman&quot;);
+                                            artCrowd.setPaintingLevel(&quot;&#x4E00;&#x7EA7;&#x8BC1;&#x4E66;&quot;);
+                                            artCrowd.setDance(true);
+                                            artCrowd.setAssessmentTime(LocalDateTime.now());
+                                            artCrowd.setHobby(&quot;&#x9493;&#x9C7C;&quot;);
+                                            }
+                                            dataList.add(artCrowd);
+                                            }
+                                            return dataList;
+                                            }
+                                        </artcrowd>
+                                    </artcrowd>
+                                </p>
+                                <p>public class People {</p>
+                                <pre><code>@ExcelColumn(order = 1, title = &quot;&#x59D3;&#x540D;&quot;,groups = People.class)
+private String name;
+
+@ExcelColumn(order = 2, title = &quot;&#x5E74;&#x9F84;&quot;)
+private Integer age;
+
+@ExcelColumn(order = 3, title = &quot;&#x6027;&#x522B;&quot;)
+private String gender;
+
+public String getName() {
+    return name;
+}
+
+public void setName(String name) {
+    this.name = name;
+}
+
+public Integer getAge() {
+    return age;
+}
+
+public void setAge(Integer age) {
+    this.age = age;
+}
+
+public String getGender() {
+    return gender;
+}
+
+public void setGender(String gender) {
+    this.gender = gender;
+}
+</code></pre>
+                                <p>}</p>
+                                <p>@ExcelTable(sheetName = &quot;&#x827A;&#x672F;&#x751F;&quot;, workbookType =
+                                    WorkbookType.SXLSX, rowAccessWindowSize = 100, useFieldNameAsTitle = true)
+                                    public class ArtCrowd extends People {</p>
+                                <pre><code>@ExcelColumn(order = 4,groups = String.class)
+private String paintingLevel;
+
+@ExcelColumn(order = 5, title = &quot;&#x662F;&#x5426;&#x4F1A;&#x8DF3;&#x821E;&quot;, groups = {People.class})
+private boolean dance;
+
+@ExcelColumn(order = 6, title = &quot;&#x8003;&#x6838;&#x65F6;&#x95F4;&quot;, dateFormatPattern = &quot;yyyy-MM-dd HH:mm:ss&quot;, groups = {People.class, String.class})
+private LocalDateTime assessmentTime;
+
+@ExcludeColumn
+private String hobby;
+
+public String getPaintingLevel() {
+    return paintingLevel;
+}
+
+public void setPaintingLevel(String paintingLevel) {
+    this.paintingLevel = paintingLevel;
+}
+
+public boolean isDance() {
+    return dance;
+}
+
+public void setDance(boolean dance) {
+    this.dance = dance;
+}
+
+public LocalDateTime getAssessmentTime() {
+    return assessmentTime;
+}
+
+public void setAssessmentTime(LocalDateTime assessmentTime) {
+    this.assessmentTime = assessmentTime;
+}
+
+public String getHobby() {
+    return hobby;
+}
+
+public void setHobby(String hobby) {
+    this.hobby = hobby;
+}
+</code></pre>
+                                <p>}</p>
+                                <pre><code>&#x5BFC;&#x51FA;&#x4F7F;&#x7528;&#x6CE8;&#x89E3;
+1. @ExcelTable(includeAllField,excludeParent,workbookType,sheetName,rowAccessWindowSize,useFieldNameAsTitle,defaultValue)
+2. @ExcludeColumn
+3. @ExcelColumn(title,order,dateFormatPattern,groups,defaultValue)
+
+&#x5BF9;&#x5E94;&#x6CE8;&#x89E3;&#x8BE6;&#x60C5;&#x8BF7;&#x89C1;&#xFF1A;[&#x6CE8;&#x89E3;](https://github.com/liaochong/myexcel/wiki/Annotation)
+
+#### &#x751F;&#x6210;&#x793A;&#x4F8B;
+![avatar](https://raw.githubusercontent.com/wiki/liaochong/html2excel/default-excel-example.png)
+&gt; DefaultExcelBuilder&#x751F;&#x6210;&#x7684;Excel&#x9ED8;&#x8BA4;&#x81EA;&#x9002;&#x5E94;&#x5BBD;&#x5EA6;&#x3001;&#x9AD8;&#x5EA6;&#xFF0C;&#x53CC;&#x884C;&#x6DE1;&#x7EFF;&#x80CC;&#x666F;&#x8272;&#xFF0C;&#x6807;&#x9898;&#x884C;&#x5B57;&#x4F53;&#x52A0;&#x7C97;&#x3001;&#x5C45;&#x4E2D;
+- 3.2 &#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;
+```java
+// title
+List&lt;String&gt; titles = new ArrayList&lt;&gt;();
+titles.add(&quot;&#x59D3;&#x540D;&quot;);
+titles.add(&quot;&#x5E74;&#x9F84;&quot;);
+
+// field display order
+List&lt;String&gt; order = new ArrayList&lt;&gt;();
+order.add(&quot;name&quot;);
+order.add(&quot;age&quot;);
+
+// display data
+List&lt;TestDO&gt; dataList = this.getData();
+
+Workbook workbook = DefaultExcelBuilder.getInstance()
+                                    .sheetName(&quot;default example&quot;)
+                                    .titles(titles)
+                                    .fieldDisplayOrder(order)
+                                    .build(dataList);
+
+private List&lt;TestDO&gt; getData(){
+  TestDO testDO = new TestDO();
+  testDO.setName(&quot;&#x5F20;&#x4E09;&quot;);
+  TestDO testDO1 = new TestDO();
+  testDO1.setName(&quot;&#x674E;&#x56DB;&quot;);
+
+  TestDO testDO2 = new TestDO();
+  testDO2.setName(&quot;&#x738B;&#x4E94;&quot;);
+  testDO2.setAge(15);
+  TestDO testDO3 = new TestDO();
+  testDO3.setName(&quot;&#x9648;&#x516D;&quot;);
+  testDO3.setAge(25);
+
+  List&lt;TestDO&gt; dataList = new ArrayList&lt;&gt;();
+  dataList.add(testDO);
+  dataList.add(testDO1);
+  dataList.add(testDO2);
+  dataList.add(testDO3);
+
+  return dataList;
+}
+</code></pre>
+
+                            </section>
+
+                        </div>
+                        <div class="search-results">
+                            <div class="has-results">
+
+                                <h1 class="search-results-title"><span class='search-results-count'></span> results
+                                    matching "<span class='search-query'></span>"</h1>
+                                <ul class="search-results-list"></ul>
+
+                            </div>
+                            <div class="no-results">
+
+                                <h1 class="search-results-title">No results matching "<span class='search-query'></span>"
+                                </h1>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <a href="./" class="navigation navigation-prev " aria-label="Previous page: 简介">
+            <i class="fa fa-angle-left"></i>
+        </a>
+
+
+        <a href="api.html" class="navigation navigation-next " aria-label="Next page: API">
+            <i class="fa fa-angle-right"></i>
+        </a>
+
+
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function () {
+            gitbook.page.hasChanged({
+                "page": {
+                    "title": "快速开始",
+                    "level": "1.2",
+                    "depth": 1,
+                    "next": {
+                        "title": "API",
+                        "level": "1.3",
+                        "depth": 1,
+                        "path": "api.md",
+                        "ref": "api.md",
+                        "articles": []
+                    },
+                    "previous": {
+                        "title": "简介",
+                        "level": "1.1",
+                        "depth": 1,
+                        "path": "README.md",
+                        "ref": "README.md",
+                        "articles": []
+                    },
+                    "dir": "ltr"
+                },
+                "config": {
+                    "gitbook": "*",
+                    "theme": "default",
+                    "variables": {},
+                    "plugins": ["livereload"],
+                    "pluginsConfig": {
+                        "livereload": {},
+                        "highlight": {},
+                        "search": {},
+                        "lunr": {"maxIndexSize": 1000000, "ignoreSpecialCharacters": false},
+                        "sharing": {
+                            "facebook": true,
+                            "twitter": true,
+                            "google": false,
+                            "weibo": false,
+                            "instapaper": false,
+                            "vk": false,
+                            "all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+                        },
+                        "fontsettings": {"theme": "white", "family": "sans", "size": 2},
+                        "theme-default": {
+                            "styles": {
+                                "website": "styles/website.css",
+                                "pdf": "styles/pdf.css",
+                                "epub": "styles/epub.css",
+                                "mobi": "styles/mobi.css",
+                                "ebook": "styles/ebook.css",
+                                "print": "styles/print.css"
+                            }, "showLevel": false
+                        }
+                    },
+                    "structure": {
+                        "langs": "LANGS.md",
+                        "readme": "README.md",
+                        "glossary": "GLOSSARY.md",
+                        "summary": "SUMMARY.md"
+                    },
+                    "pdf": {
+                        "pageNumbers": true,
+                        "fontSize": 12,
+                        "fontFamily": "Arial",
+                        "paperSize": "a4",
+                        "chapterMark": "pagebreak",
+                        "pageBreaksBefore": "/",
+                        "margin": {"right": 62, "left": 62, "top": 56, "bottom": 56}
+                    },
+                    "styles": {
+                        "website": "styles/website.css",
+                        "pdf": "styles/pdf.css",
+                        "epub": "styles/epub.css",
+                        "mobi": "styles/mobi.css",
+                        "ebook": "styles/ebook.css",
+                        "print": "styles/print.css"
+                    }
+                },
+                "file": {"path": "start.md", "mtime": "2019-06-30T05:41:18.967Z", "type": "markdown"},
+                "gitbook": {"version": "3.2.3", "time": "2019-06-30T05:41:32.142Z"},
+                "basePath": ".",
+                "book": {"language": ""}
+            });
+        });
+    </script>
+</div>
+
+
+<script src="gitbook/gitbook.js"></script>
+<script src="gitbook/theme.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-search/search.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+
+
+<script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+
+
+</body>
+</html>
+
