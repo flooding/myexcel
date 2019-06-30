@@ -1,58 +1,3 @@
-* <a href="#import">导入（Import）</a>
-* <a href="#export">导出（Export）</a>
-
-# <a id="import">导入-Import</a>
-```java
-URL htmlToExcelEampleURL = this.getClass().getResource("/templates/read_example.xlsx");
-Path path = Paths.get(htmlToExcelEampleURL.toURI());
-
-// 方式一：全部读取后处理
-List<ArtCrowd> result = DefaultExcelReader.of(ArtCrowd.class)
-        .sheet(0) // 0代表第一个，如果为0，可省略该操作
-        .rowFilter(row -> row.getRowNum() > 0) // 如无需过滤，可省略该操作，0代表第一行
-        .beanFilter(ArtCrowd::isDance) // bean过滤
-        .read(path.toFile());// 可接收inputStream
-
-// 方式二：读取一行处理一行，可自行决定终止条件
-DefaultExcelReader.of(ArtCrowd.class)
-        .sheet(0) // 0代表第一个，如果为0，可省略该操作
-        .rowFilter(row -> row.getRowNum() > 0) // 如无需过滤，可省略该操作，0代表第一行
-        .beanFilter(ArtCrowd::isDance) // bean过滤
-        .readThen(path.toFile() ,artCrowd -> System.out.println(artCrowd.getName));// 可接收inputStream
-
-// 方式三：全部读取后处理，SAX模式，避免OOM，建议大量数据使用
-List<ArtCrowd> result = SaxExcelReader.of(ArtCrowd.class)
-        .sheet(0) // 0代表第一个，如果为0，可省略该操作
-        .rowFilter(row -> row.getRowNum() > 0) // 如无需过滤，可省略该操作，0代表第一行
-        .beanFilter(ArtCrowd::isDance) // bean过滤
-        .read(path.toFile());// 可接收inputStream
-
-// 方式四：读取一行处理一行，可自行决定终止条件，SAX模式，避免OOM，建议大量数据使用
-SaxExcelReader.of(ArtCrowd.class)
-        .sheet(0) // 0代表第一个，如果为0，可省略该操作
-        .rowFilter(row -> row.getRowNum() > 0) // 如无需过滤，可省略该操作，0代表第一行
-        .beanFilter(ArtCrowd::isDance) // bean过滤
-        .readThen(path.toFile() ,artCrowd -> System.out.println(artCrowd.getName));// 可接收inputStream
-
-public class ArtCrowd {
-    // index代表列索引，从0开始
-    @ExcelColumn(index = 0)
-    private String name;
-
-    @ExcelColumn(index = 1)
-    private String age;
-
-    @ExcelColumn(index = 2,dateFormatPattern="yyyy-MM-dd")
-    private Date birthday;
-}
-```
-导入`必须`使用注解： @ExcelColumn(index,dateFormatPattern)
-
-对应注解详情请见：[注解](https://github.com/liaochong/myexcel/wiki/Annotation)
-
-操作API请参见 [API](https://github.com/liaochong/myexcel/wiki/Operation-API)
-
-# <a id="export">导出-Export</a>
 > 如只是简单列表导出，无需选定模板引擎，请直接跳至下方<a href="#DefaultExcelBuilder">DefaultExcelBuilder/DefaultStreamExcelBuilder</a>部分
 
 1.导出模板引擎选定
@@ -93,6 +38,7 @@ public class ArtCrowd {
 2.Workbook生成
 --------------
 1. 已存在Html文件时，使用这种方式，Html文件不局限于放在项目的classpath（如：resources）下，也无需模板引擎
+
 ```java
 // get html file
 File htmlFile = new File("/Users/liaochong/Downloads/example.html");
@@ -104,8 +50,9 @@ Workbook workbook = HtmlToExcelFactory.readHtml(htmlFile).useDefaultStyle().buil
 FileExportUtil.export(workbook, new File("/Users/liaochong/Downloads/excel.xlsx"));
 ```
 2. 使用内置的Freemarker等模板引擎Excel构建器，模板文件应当存放在classpath下，具体请参照项目中的example
+
 ```java
-/**
+/*
 * use non-default-style excel builder
 * 模板文件放置在resources下
 *
@@ -122,7 +69,7 @@ public void build(HttpServletResponse response) {
      AttachmentExportUtil.export(workbook, "freemarker_excel", response);
 }
 
-/**
+/*
 * use default-style excel builder
 * 模板文件放置在resources下
 *
@@ -170,6 +117,7 @@ private Map<String, Object> getDataMap() {
 ```
 3. 默认模板构建器（<a id="DefaultExcelBuilder">DefaultExcelBuilder/DefaultStreamExcelBuilder</a>）使用，无需模板引擎
 - 3.1 注解方式（推荐）
+
 ```java
 /**
 * 方式一：普通方式导出
@@ -330,6 +278,7 @@ public class ArtCrowd extends People {
 ![avatar](https://raw.githubusercontent.com/wiki/liaochong/html2excel/default-excel-example.png)
 > DefaultExcelBuilder生成的Excel默认自适应宽度、高度，双行淡绿背景色，标题行字体加粗、居中
 - 3.2 自定义方式
+
 ```java
 // title
 List<String> titles = new ArrayList<>();
