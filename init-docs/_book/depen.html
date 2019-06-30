@@ -1,10 +1,9 @@
-
 <!DOCTYPE HTML>
 <html lang="">
 <head>
     <meta charset="UTF-8">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>联系我们 · GitBook</title>
+    <title>依赖 · GitBook</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="description" content="">
     <meta name="generator" content="GitBook 3.2.3">
@@ -30,7 +29,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
 
-    <link rel="prev" href="version-log.html"/>
+    <link rel="next" href="import.html"/>
 
 
 </head>
@@ -76,7 +75,7 @@
                     <ul class="articles">
 
 
-                        <li class="chapter " data-level="1.2.1" data-path="depen.html">
+                        <li class="chapter active" data-level="1.2.1" data-path="depen.html">
 
                             <a href="depen.html">
 
@@ -189,7 +188,7 @@
 
                 </li>
 
-                <li class="chapter active" data-level="1.9" data-path="contact-us.html">
+                <li class="chapter " data-level="1.9" data-path="contact-us.html">
 
                     <a href="contact-us.html">
 
@@ -228,7 +227,7 @@
                 <!-- Title -->
                 <h1>
                     <i class="fa fa-circle-o-notch fa-spin"></i>
-                    <a href=".">联系我们</a>
+                    <a href=".">依赖</a>
                 </h1>
             </div>
 
@@ -241,12 +240,34 @@
 
                             <section class="normal markdown-section">
 
-                                <ul>
-                                    <li>QQ&#x7FA4;&#xFF1A;135520370</li>
-                                    <li>Email&#xFF1A;liaochong8950@163.com</li>
-                                    <li>Issue&#xFF1A;<a href="https://github.com/liaochong/myexcel/issues"
-                                                        target="_blank">issues</a></li>
-                                </ul>
+                                <p>Maven</p>
+                                <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.liaochong<span
+                                            class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>myexcel<span
+                                            class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.7.0<span class="hljs-tag">&lt;/<span
+                                            class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+                                <p>Gradle</p>
+                                <pre><code class="lang-xml">compile group: &apos;com.github.liaochong&apos;, name: &apos;myexcel&apos;, version: &apos;2.7.0&apos;
+</code></pre>
+                                <p>Ivy</p>
+                                <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span> <span
+                                        class="hljs-attr">org</span>=<span class="hljs-string">&quot;com.github.liaochong&quot;</span> <span
+                                        class="hljs-attr">name</span>=<span
+                                        class="hljs-string">&quot;myexcel&quot;</span> <span
+                                        class="hljs-attr">rev</span>=<span class="hljs-string">&quot;2.7.0&quot;</span>/&gt;</span>
+</code></pre>
+                                <p>&#x5176;&#x5B83;&#x65B9;&#x5F0F;&#x8BF7;&#x53C2;&#x89C1;&#xFF1A;<a
+                                        href="https://search.maven.org/artifact/com.github.liaochong/myexcel"
+                                        target="_blank">https://search.maven.org/artifact/com.github.liaochong/myexcel</a>
+                                </p>
+                                <p>For other ways, see website <a
+                                        href="https://search.maven.org/artifact/com.github.liaochong/myexcel"
+                                        target="_blank">https://search.maven.org/artifact/com.github.liaochong/myexcel</a>
+                                </p>
 
 
                             </section>
@@ -275,9 +296,8 @@
         </div>
 
 
-        <a href="version-log.html" class="navigation navigation-prev navigation-unique"
-           aria-label="Previous page: 版本日志">
-            <i class="fa fa-angle-left"></i>
+        <a href="import.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 导入">
+            <i class="fa fa-angle-right"></i>
         </a>
 
 
@@ -288,16 +308,44 @@
         gitbook.push(function () {
             gitbook.page.hasChanged({
                 "page": {
-                    "title": "联系我们",
-                    "level": "1.9",
-                    "depth": 1,
-                    "previous": {
-                        "title": "版本日志",
-                        "level": "1.8",
-                        "depth": 1,
-                        "path": "version-log.md",
-                        "ref": "version-log.md",
+                    "title": "依赖",
+                    "level": "1.2.1",
+                    "depth": 2,
+                    "next": {
+                        "title": "导入",
+                        "level": "1.2.2",
+                        "depth": 2,
+                        "path": "import.md",
+                        "ref": "import.md",
                         "articles": []
+                    },
+                    "previous": {
+                        "title": "快速开始",
+                        "level": "1.2",
+                        "depth": 1,
+                        "ref": "",
+                        "articles": [{
+                            "title": "依赖",
+                            "level": "1.2.1",
+                            "depth": 2,
+                            "path": "depen.md",
+                            "ref": "depen.md",
+                            "articles": []
+                        }, {
+                            "title": "导入",
+                            "level": "1.2.2",
+                            "depth": 2,
+                            "path": "import.md",
+                            "ref": "import.md",
+                            "articles": []
+                        }, {
+                            "title": "导出",
+                            "level": "1.2.3",
+                            "depth": 2,
+                            "path": "export.md",
+                            "ref": "export.md",
+                            "articles": []
+                        }]
                     },
                     "dir": "ltr"
                 },
@@ -356,7 +404,7 @@
                         "print": "styles/print.css"
                     }
                 },
-                "file": {"path": "contact-us.md", "mtime": "2019-06-30T05:39:43.000Z", "type": "markdown"},
+                "file": {"path": "depen.md", "mtime": "2019-06-30T06:08:21.755Z", "type": "markdown"},
                 "gitbook": {"version": "3.2.3", "time": "2019-06-30T05:49:12.537Z"},
                 "basePath": ".",
                 "book": {"language": ""}
